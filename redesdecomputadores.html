@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História das Redes de Computador - Completa</title>
+    <style>
+               * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-bg: #000000;
+            --secondary-bg: #111;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --border-primary: #ffffff;
+            --border-secondary: #333;
+            --accent: #666;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--primary-bg);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 3px solid var(--border-primary);
+            margin-bottom: 50px;
+        }
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: bold;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.8;
+            letter-spacing: 2px;
+        }
+       
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 60px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--border-primary);
+        }
+        .event {
+            margin: 60px 0;
+            position: relative;
+        }
+        .event::before {
+            content: '';
+            position: absolute;
+            left: -60px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background: var(--border-primary);
+            border-radius: 50%;
+            border: 4px solid var(--primary-bg);
+        }
+        .date {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+        .event h2 {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--border-primary);
+            padding-left: 20px;
+            letter-spacing: 2px;
+        }
+        .event h3 {
+            font-size: 1.6rem;
+            margin: 25px 0 15px 0;
+            color: var(--text-secondary);
+        }
+        .highlight {
+            background: var(--secondary-bg);
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 6px solid var(--border-primary);
+            border-right: 3px solid var(--border-primary);
+        }
+        .connections {
+            margin: 20px 0;
+            padding-left: 20px;
+            counter-reset: conn-counter;
+        }
+        .connection-item {
+            display: block;
+            padding: 8px 0;
+            position: relative;
+            counter-increment: conn-counter;
+        }
+        .connection-item::before {
+            content: counter(conn-counter) ".";
+            position: absolute;
+            left: -20px;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+        .models {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .model-card {
+            background: var(--secondary-bg);
+            padding: 30px;
+            border: 2px solid var(--border-primary);
+            transition: all 0.3s ease;
+        }
+        .model-card:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+        .model-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .layers {
+            counter-reset: layer-counter;
+        }
+        .layers div {
+            counter-increment: layer-counter;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-secondary);
+        }
+        .layers div::before {
+            content: counter(layer-counter) ".";
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-right: 15px;
+            min-width: 25px;
+            display: inline-block;
+        }
+        .quiz-section {
+            margin: 80px 0;
+            padding: 40px;
+            background: var(--secondary-bg);
+            border: 2px solid var(--border-primary);
+        }
+        .quiz-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .quiz-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .quiz-question {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #444;
+        }
+        .quiz-question h4 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        .quiz-radio-group {
+            margin: 10px 0;
+        }
+        .quiz-radio-group label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+        .quiz-radio-group input[type="radio"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+        .quiz-date {
+            padding: 10px;
+            background: #333;
+            color: var(--text-primary);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            width: 200px;
+            display: block;
+            margin-top: 10px;
+        }
+        .quiz-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: block;
+        }
+        .quiz-submit {
+            background: var(--border-primary);
+            color: var(--primary-bg);
+            padding: 15px 40px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 30px auto 0;
+            display: block;
+            border-radius: 4px;
+        }
+        .quiz-submit:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+                footer {
+            text-align: center;
+            padding: 40px 0;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .event h2 {
+                font-size: 1.8rem;
+            }
+            .timeline {
+                padding-left: 30px;
+            }
+            .event::before {
+                left: -45px;
+            }
+           
+            .models {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+              html {
+            scroll-behavior: smooth;
+        }
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <h1>História das Redes</h1>
+            <p class="subtitle">Da ARPANET à Internet Moderna - Linha do Tempo Completa</p>
+        </header>
+
+        <!-- TIMELINE -->
+        <div class="timeline">
+            <div class="event">
+                <div class="date">1960-1968</div>
+                <h2>🌐 Antecendentes</h2>
+                <p>A ideia de redes começou com a necessidade militar de comunicação confiável durante a Guerra Fria. Pesquisadores como Paul Baran, Donald Davies e Leonard Kleinrock desenvolveram os conceitos fundamentais de <em>commutação de pacotes</em>.</p>
+                <div class="highlight">
+                    Conceito chave: Em vez de linhas dedicadas ponto-a-ponto, os dados são divididos em pacotes que viajam por rotas independentes e são remontados no destino.
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="date">1969</div>
+                <h2>🚀 Nascimento da ARPANET</h2>
+                <p>29 de outubro de 1969: >primeira conexão bem-sucedida entre UCLA e Stanford Research Institute através da Interface Message Processor (IMP).</p>
+                <div class="highlight">
+                    <strong>Comando histórico: "LOGIN" foi digitado. O sistema respondeu "LO" e travou. Funcionou!
+                </div>
+                <h3>1969-1971: Primeiras Conexões</h3>
+                <div class="connections">
+                    <span class="connection-item">Dez/69: UCLA ↔ SRI</span>
+                    <span class="connection-item">Dez/69: UCSB e UC Santa Barbara</span>
+                    <span class="connection-item">1970: Universidade de Utah</span>
+                    <span class="connection-item">1971: 15 nós conectados</span>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="date">1972-1974</div>
+                <h2>📡 Protocolos Fundamentais</h2>
+                <p>Vint Cerf e Bob Kahn criam o TCP (1974). Ray Tomlinson inventa o @ para email (1971).</p>
+                <div class="highlight">
+            Primeiro email: "QWERTYUIOP" foi a mensagem teste de Tomlinson.
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="date">1978-1983</div>
+                <h2>🔄 TCP/IP</h2>
+                <p>TCP é dividido em TCP (transporte) e IP (internet). Em 1º janeiro de 1983, a ARPANET migra oficialmente para TCP/IP - <em>nascimento da Internet</em>.</p>
+            </div>
+            <div class="event">
+                <div class="date">1989-1991</div>
+                <h2>🌍 World Wide Web</h2>
+                <p>Tim Berners-Lee cria a WWW no CERN. Primeiro website: <code>info.cern.ch</code> (1991).</p>
+            </div>
+        </div>
+        <!-- MODELOS OSI E TCP/IP -->
+        <div class="models">
+            <div class="model-card">
+                <h3>Modelo OSI (1984)</h3>
+                <div class="layers">
+                    <div>7. Aplicação (HTTP, FTP)</div>
+                    <div>6. Apresentação (Criptografia)</div>
+                    <div>5. Sessão (Controle de diálogo)</div>
+                    <div>4. Transporte (TCP, UDP)</div>
+                    <div>3. Rede (IP, roteamento)</div>
+                    <div>2. Enlace (MAC, Ethernet)</div>
+                    <div>1. Físico (cabos, WiFi)</div>
+                </div>
+            </div>
+            <div class="model-card">
+                <h3>Modelo TCP/IP</h3>
+                <div class="layers">
+                    <div>4. Aplicação (HTTP, DNS)</div>
+                    <div>3. Transporte (TCP, UDP)</div>
+                    <div>2. Internet (IP)</div>
+                    <div>1. Enlace/Rede (Ethernet)</div>
+                </div>
+            </div>
+        </div>
+        <!-- QUIZ INTERATIVO -->
+        <div class="quiz-section">
+            <h2>🧠 Teste seu Conhecimento</h2>
+            <form class="quiz-form">
+                <div class="quiz-question">
+                    <h4>1. Qual o ano da primeira conexão ARPANET?</h4>
+                    <div class="quiz-radio-group">
+                        <label><input type="radio" name="q1" value="a"> 1968</label>
+                        <label><input type="radio" name="q1" value="b"> 1969</label>
+                        <label><input type="radio" name="q1" value="c"> 1971</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h4>2. Quantas camadas tem o modelo OSI?</h4>
+                    <div class="quiz-radio-group">
+                        <label><input type="radio" name="q2" value="a"> 4</label>
+                        <label><input type="radio" name="q2" value="b"> 5</label>
+                        <label><input type="radio" name="q2" value="c"> 7</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h4>3. Data oficial da adoção TCP/IP:</h4>
+                    <input type="date" name="q3" class="quiz-date" max="1983-01-02" min="1983-01-01">
+                    <span class="quiz-hint">Dica: 1º janeiro de 1983</span>
+                </div>
+                <button type="submit" class="quiz-submit">✅ Verificar Respostas</button>
+            </form>
+        </div>
+        <!-- FOOTER -->
+        <footer>
+            <p>Desenvolvido para estudo | História completa das redes | Maringá-PR 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
+
