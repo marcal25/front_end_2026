@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa do Mundo FIFA 2026</title>
+   <style>
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --bg-color: linear-gradient(135deg, #f8fbfc 0%, #e8f4fd 100%);
+    --card-bg: rgba(255,255,255,0.97);
+    --text-color: #333;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+    padding: 25px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    padding: 50px 30px;
+    background: linear-gradient(135deg, var(--accent-color), #2980b9);
+    color: white;
+    border-radius: 25px;
+    margin-bottom: 45px;
+    box-shadow: 0 20px 50px rgba(52,152,219,0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '🌍⚽🏆';
+    position: absolute;
+    font-size: 5em;
+    top: 50%;
+    right: -50px;
+    transform: translateY(-50%);
+    opacity: 0.08;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(-20px); }
+}
+
+h1 {
+    font-size: 3.5em;
+    margin: 0 0 20px 0;
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+}
+
+.info-aluno {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.3);
+    padding: 20px 35px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    font-size: 1.2em;
+    font-weight: 600;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.hero-images {
+    margin-top: 20px;
+}
+
+.hero-images img {
+    width: 180px;
+    height: 240px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.3);
+}
+
+nav {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    padding: 30px;
+    border-radius: 25px;
+    margin-bottom: 50px;
+    box-shadow: 0 15px 40px rgba(44,62,80,0.4);
+    position: sticky;
+    top: 25px;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.35em;
+    padding: 18px 30px;
+    border-radius: 35px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+nav a:hover {
+    background: var(--accent-color);
+    border-color: rgba(255,255,255,0.3);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(52,152,219,0.5);
+}
+
+.secao {
+    background: var(--card-bg);
+    padding: 60px;
+    border-radius: 30px;
+    margin-bottom: 50px;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+    border-left: 10px solid var(--accent-color);
+    backdrop-filter: blur(15px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.secao::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-color), #27ae60, #f39c12);
+    border-radius: 30px 30px 0 0;
+}
+
+.secao:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 90px rgba(0,0,0,0.22);
+}
+
+.secao h1 {
+    font-size: 4em;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 45px;
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color), #27ae60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    letter-spacing: -2px;
+}
+
+.secao h1::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(52,152,219,0.4);
+}
+
+.secao p {
+    font-size: 1.5em;
+    text-align: justify;
+    color: #5a6c7d;
+    line-height: 1.95;
+    padding: 0 30px;
+}
+
+.btn-tabela {
+    background: linear-gradient(135deg, #27ae60, #2ecc71, #58d68d);
+    color: white;
+    border: none;
+    padding: 25px 60px;
+    border-radius: 60px;
+    font-size: 1.8em;
+    font-weight: 900;
+    cursor: pointer;
+    display: block;
+    margin: 60px auto 0;
+    box-shadow: 0 20px 45px rgba(39,174,96,0.5);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-tabela:hover {
+    transform: translateY(-12px) scale(1.08);
+    box-shadow: 0 35px 70px rgba(39,174,96,0.7);
+}
+
+#tabela-container {
+    margin-top: 60px;
+    text-align: center;
+    padding: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+#tabela-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#tabela-container img.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.8em; }
+    .secao h1 { font-size: 3em; }
+    nav ul { flex-direction: column; gap: 15px; }
+    .secao { padding: 40px 25px; margin-bottom: 30px; }
+    .btn-tabela { font-size: 1.4em; padding: 20px 40px; }
+    .hero-images img { width: 140px; height: 190px; }
+}</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏆 Copa do Mundo FIFA 2026</h1>
+            <div class="info-aluno">
+                <span><strong>👨‍💻 Matheus Marçal</strong></span>
+                <span><strong>📅 27/04/2026</strong></span>
+            </div>
+            <div class="hero-images">
+                <img src="_vinicius_junior.png" alt="Vinícius Júnior - Estrela Brasileira" loading="lazy">
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#sedes">🌍 Sedes (3 Países)</a></li>
+                <li><a href="#formato">⚽ 48 Seleções</a></li>
+                <li><a href="#expectativas">🏆 Impacto Máximo</a></li>
+            </ul>
+        </nav>
+
+        <section id="sedes" class="secao">
+            <h1>🌍 Organização e Sedes</h1>
+            <p><strong>Primeira Copa tri-nacional:</strong> EUA, Canadá e México. <strong>16 cidades-sede</strong> fazem desta edição a maior da história com 104 jogos programados.</p>
+        </section>
+
+        <section id="formato" class="secao">
+            <h1>⚽ Novo Formato</h1>
+            <p><strong>48 seleções</strong>, 12 grupos de 4 times, <strong>104 jogos</strong> no total. A FIFA expandiu o torneio para incluir mais países e aumentar o alcance global do futebol.</p>
+        </section>
+
+<section id="tabela" class="secao">
+    
+    <button class="btn-tabela" onclick="mostrarTabelaJogos()">Mostrar Tabela de Jogos</button>
+    <div id="tabela-jogos"></div>     
+        </section>
+
+        <footer>
+            © 2026 Matheus Marçal | Front-End Developer | DFMF System
+        </footer>
+    </div>
+
+    <script src="3script.js"></script>
+</body>
+</html>
+

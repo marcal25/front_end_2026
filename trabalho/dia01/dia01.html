@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa do Mundo 2026</title>
+    >
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        nav a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .secao {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            border-left: 6px solid #3498db;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            text-align: justify;
+            color: #444;
+        }
+
+        .btn-jogos,
+        .btn-perfil {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .btn-jogos:hover,
+        .btn-perfil:hover {
+            background-color: #2980b9;
+        }
+
+        #tabela-jogos img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 20px;
+            display: block;
+        }
+
+        .perfil-container {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Copa do Mundo 2026</h1>
+        </header>
+
+        <nav>
+            <u
+            <ul>
+                ><a href="#organizacao">🌍 Sedes</a></l/li>
+                ><a href="#formato">⚽ Formato</a></l/li>
+                ><a href="#expectativas">🏆 Expectativas</a></l/li>
+                ><a href="#tabela">📊 Tabela</a></li>
+            </ul>
+        </nav>
+
+        <section id="organizacao" class="secao">
+            <h2>Organização e Sedes</h2>
+            <p>
+                A Copa do Mundo FIFA de 2026 será a primeira edição realizada em três países:
+                Estados Unidos, Canadá e México, com 16 cidades-sede.
+            </p>
+        </section>
+
+        <section id="formato" class="secao">
+            <h2>Novo Formato</h2>
+            <p>
+                O torneio contará com 48 seleções em grupos, totalizando 104 jogos
+                para maior inclusão e competitividade.
+            </p>
+        </section>
+
+        <section id="expectativas" class="secao">
+            <h2>Expectativas e Impacto</h2>
+            <p>
+                Pode promover grande audiência mundial e impacto econômico significativo
+                nos países-sede, além de impulsionar o turismo.
+            </p>
+        </section>
+
+        <section id="tabela" class="secao">
+            <button class="btn-jogos" onclick="mostrarTabelaJogos()">Mostrar Tabela de Jogos</button>
+            <div id="tabela-jogos"></div>
+
+            <button class="btn-perfil" onclick="revelarPerfil()">Perfil do Jogador</button>
+            <div id="perfil-container" class="perfil-container"></div>
+        </section>
+
+        <footer>
+            © 2026 - DFMF System
+        </footer>
+    </div>
+
+    <script src="1script.js"></script>
+</body>
+</html>
